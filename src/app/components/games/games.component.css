@@ -1,0 +1,30 @@
+.wrapper {
+    box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    padding: 0 20px;
+    margin: 0 auto;
+    background-color: #fff;
+    min-height: 100vh;
+}
+.title{
+    font-size: 20px;
+}
+.cardSectionTitle{
+    margin-top: 10px;
+}
+.games-container {
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+}
+.gamesCards{
+    width: 80%;
+}
+.btn{
+    background-color: #6C69FF;
+}
+.loader{
+    text-align: center;
+}
+.emptyResult{
+    text-align: center;
+}

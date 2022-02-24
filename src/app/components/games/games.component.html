@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="wrapper">
+      <div>
+        <p class="title">Games</p>
+        <label for="searchGame">Search Games</label>
+        <form>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="input-group">
+                    <input #search type="text" id="searchGame" (input)="onInput(search.value)" class="form-control" placeholder="Search Game">
+                    <div class="input-group-btn">
+                        <button class="btn btn-primary" type="submit" (click)="searchGame(search.value)">Search</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </form>
+        <p class="title cardSectionTitle">Featured Games</p>
+      </div>
+      <div class="loader" *ngIf="loading">
+        <app-loading-spinner></app-loading-spinner>
+      </div>
+      <div *ngIf="!filteredGames.length" class="emptyResult">
+        <p>No games in query!</p>
+        <p>Or games are already in your library!</p>
+      </div>
+            <div class="games-container" *ngIf="!loading">
+              <app-cards class="gamesCards" [games] = "filteredGames"></app-cards>
+              <app-sidebar (genresQuery)="onGenresFilter($event)"></app-sidebar>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>

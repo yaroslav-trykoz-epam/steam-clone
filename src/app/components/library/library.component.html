@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="wrapper">
+                <div>
+                    <p class="title">My Games</p>
+                </div>
+                <p *ngIf="!myGames.length" class="emptyResult">You don't have games in your library!</p>
+                <div class="gameCards">
+                    <div *ngFor="let game of myGames">
+                        <app-card [game]="game" [libraryView]="libraryView" (addedGameId)="addToLibrary($event)"></app-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="gameCard">
+    <div class="cardHead">
+        <p class="headText">{{game.title}}</p>
+        <p class="headText headPrice">{{game.price}} UAH</p>
+    </div>
+    <div class="cardInfo">
+        <div>
+            <p>
+                {{game.description}}
+            </p>
+        </div>
+        <div *ngIf="!libraryView" class="cardBtns">
+            <button class="addToLibrary" (click)="onAddToLibrary()">Add To Library</button>
+        </div>
+        <div *ngIf="libraryView" class="cardBtns">
+            <button class="downloadBtn addToLibrary">Download</button>
+            <button class="shareBtn addToLibrary">Share</button>
+        </div>
+    </div>
+</div>

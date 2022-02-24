@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="wrapper">
+      <div>
+        <p class="title">Friends</p>
+        <label for="searchFriend">Search Friends</label>
+        <form>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="input-group">
+                    <input #search type="text" id="searchFriend" (input)="onInput(search.value)" class="form-control" placeholder="Search Friends">
+                    <div class="input-group-btn">
+                        <button (click)="searchFriend(search.value)" class="btn btn-primary" type="submit">Search</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </form>
+        <div class="loader" *ngIf="loading">
+          <app-loading-spinner></app-loading-spinner>
+        </div>
+        <div class="myFriends" *ngIf="!loading">
+          <p *ngIf="!searchQuery" class="title">My Friends</p>
+          <p *ngIf="searchQuery" class="title">Search Friends: {{searchQuery}}</p>
+          <p *ngIf="searchQuery" class="">Result: {{ users | peopleSearch: searchQuery| length}}</p>
+          <ul *ngIf="!searchQuery">
+            <li *ngFor="let friend of friends">
+              <span>{{friend.name}}</span>
+              <button class="btnList removeFriend" (click)="onDeleteItem(friend)">Remove Friend</button>
+            </li>
+          </ul>
+          <ul *ngIf="searchQuery">
+            <li *ngFor="let user of users | peopleSearch: searchQuery">
+              <span>{{user.name}}</span>
+              <button class="btnList addFriend" *ngIf="!myFriendsIds.includes(user.id)" (click)="onAddItem(user)">Add Friend</button>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,10 @@
+<div class="side">
+    <p>Filter by price</p>
+    <div class="filterTag">
+        <p>Filter by Tag</p>
+        <div class="form-group" *ngFor="let tag of allGenres">
+            <input id="{{tag}}" class="checkInput" #checkBox (input)="onCheckBox(checkBox.value)" value="{{tag}}" type="checkbox">
+            <label for="{{tag}}">{{tag}}</label>
+        </div>
+    </div>
+</div>
